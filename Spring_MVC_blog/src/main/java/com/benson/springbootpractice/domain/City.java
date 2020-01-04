@@ -1,20 +1,33 @@
 package com.benson.springbootpractice.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+// This class specify the data frame in city table
 @Entity
 @Table(name="city")
 public class City {
     @Id
+    @Column(name="id")
     private Long id;
-
-    private Long provinceId;
-    private String cityName;
+    @Column(name="province_Id")
+    private Long province_id;
+    @Column(name="city_name")
+    private String city_name;
+    @Column(name="description")
     private String description;
+
+    public City(Long id,Long province_id, String city_name, String description) {
+        super();
+        this.id = id;
+        this.province_id = province_id;
+        this.city_name = city_name;
+        this.description = description;
+    }
+
+    public City() {
+
+    }
 
     public Long getId() {
         return id;
@@ -25,19 +38,19 @@ public class City {
     }
 
     public Long getProvinceId() {
-        return provinceId;
+        return province_id;
     }
 
     public void setProvinceId(Long provinceId) {
-        this.provinceId = provinceId;
+        this.province_id = provinceId;
     }
 
     public String getCityName() {
-        return cityName;
+        return city_name;
     }
 
     public void setCityName(String cityName) {
-        this.cityName = cityName;
+        this.city_name = cityName;
     }
 
     public String getDescription() {

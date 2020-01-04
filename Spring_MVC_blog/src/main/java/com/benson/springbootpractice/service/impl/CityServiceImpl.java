@@ -30,6 +30,21 @@ public class CityServiceImpl implements CityService {
         return mylist;
     }
 
+    @Override
+    public void addCity(City city) {
+        cityDao.addCityFromDB(city);
+    }
+
+    @Override
+    public void updateCity(City city) {
+        cityDao.updateByIdFromDB(city);
+    }
+
+    @Override
+    public void deleteCity(Long id) {
+        cityDao.deleteByIdFromDB(id);
+    }
+
 //    @Override
 //    public void addCity(City city) {
 //        jdbcTemplate.update("insert into city values(?,?,?,?)" , city.getId(),city.getProvinceId(),city.getCityName(),city.getDescription());

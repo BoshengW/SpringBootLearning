@@ -8,19 +8,12 @@ public interface CityService {
 
 
     List<City> findAllCity();
-    /*
-    * check city info based on id
-    *
-    *
-    *  */
+
     List<City> findAll();
-//    void addCity(City city);
+    void addCity(City city);
+    void updateCity(City city);
+    void deleteCity(Long id);
 
-////    Long updateCity(City city);
-
-//    void deleteById(Long id);
-//
-//    City findCityById(Long id);
 
 
 }

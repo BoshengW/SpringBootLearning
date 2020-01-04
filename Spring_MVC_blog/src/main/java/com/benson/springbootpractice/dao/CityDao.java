@@ -6,12 +6,13 @@ import java.util.List;
 
 public interface CityDao {
 
+    // 增删改查
     List<City> findAllCityFromDB();
-
     List<City> findAllFromDB();
 
-//    void addCityFromDB(City city);
-//
-//    void deleteByIdFromDB(Long id);
+    City findCityByIdFromDB(Long id);
+    void updateByIdFromDB(City city);
+    void addCityFromDB(City city);
+    void deleteByIdFromDB(Long id);
 
 }
