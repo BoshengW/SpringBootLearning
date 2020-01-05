@@ -8,22 +8,21 @@ import javax.persistence.*;
 @Table(name="city")
 public class City {
     @Id
-    @Column(name="id")
+    @GeneratedValue
     private Long id;
-    @Column(name="province_Id")
     private Long province_id;
-    @Column(name="city_name")
+//    @Column(name="city_name")
     private String city_name;
-    @Column(name="description")
+//    @Column(name="description")
     private String description;
-
-    public City(Long id,Long province_id, String city_name, String description) {
-        super();
-        this.id = id;
-        this.province_id = province_id;
-        this.city_name = city_name;
-        this.description = description;
-    }
+//
+//    public City(Long id,Long province_id, String city_name, String description) {
+//        super();
+//        this.id = id;
+//        this.province_id = province_id;
+//        this.city_name = city_name;
+//        this.description = description;
+//    }
 
     public City() {
 

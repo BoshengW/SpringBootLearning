@@ -20,35 +20,40 @@ public class CityRestController {
 //    public City findOneCity(@PathVariable("id") Long id) {
 //        return cityService.findCityById(id);
 //    }
-    @GetMapping("/api/index")
+    @GetMapping("/index")
     public String index() {
         return "index";
     }
-    @GetMapping("/api/search")
+    @GetMapping("/cityall")
     public List<City> findAllCity() {
         System.out.println("Jump in /api/city");
         return cityService.findAllCity();
     }
 
-    @GetMapping("/api/cityall")
+    @GetMapping("/showall")
     public List<City> findAll() {
         System.out.println("Jump in /api/cityall");
         return cityService.findAll();
     }
 
-    @RequestMapping(value = "/api/city/{id}", method=RequestMethod.DELETE)
+    @RequestMapping(value = "/city/{id}", method=RequestMethod.DELETE)
     public void deleteById(@PathVariable("id") Long id) {
         cityService.deleteCity(id);
         System.out.println("Delete "+ id + " success");
     }
 
-    @RequestMapping(value = "/api/city/add", method=RequestMethod.POST)
+    @RequestMapping(value = "/city/add", method=RequestMethod.POST)
     public void addCity(@RequestBody City city) {
-
+        // model a
+        // rowmapper
+        System.out.println(city.getCityName());
+        System.out.println(city.getId());
+        System.out.println(city.getProvinceId());
+        System.out.println(city.getDescription());
         cityService.addCity(city);
         System.out.println("add successfully");
     }
-    @RequestMapping(value = "/api/city/update", method=RequestMethod.PUT)
+    @RequestMapping(value = "/city/update", method=RequestMethod.PUT)
     public void updateCity(@RequestBody City city) {
 
         cityService.updateCity(city);
