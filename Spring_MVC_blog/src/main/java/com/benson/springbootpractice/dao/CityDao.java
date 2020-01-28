@@ -10,9 +10,9 @@ public interface CityDao {
     List<City> findAllCityFromDB();
     List<City> findAllFromDB();
 
-    City findCityByIdFromDB(Long id);
+    City findCityByIdFromDB(int id);
     void updateByIdFromDB(City city);
     void addCityFromDB(City city);
-    void deleteByIdFromDB(Long id);
+    void deleteByIdFromDB(int id);
 
 }

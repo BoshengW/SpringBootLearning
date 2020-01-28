@@ -12,7 +12,7 @@ public interface CityService {
     List<City> findAll();
     void addCity(City city);
     void updateCity(City city);
-    void deleteCity(Long id);
+    void deleteCity(int id);
 
 
 

@@ -9,38 +9,31 @@ import javax.persistence.*;
 public class City {
     @Id
     @GeneratedValue
-    private Long id;
-    private Long province_id;
+    private int id;
+
+    private int province_id;
 //    @Column(name="city_name")
     private String city_name;
 //    @Column(name="description")
     private String description;
-//
-//    public City(Long id,Long province_id, String city_name, String description) {
-//        super();
-//        this.id = id;
-//        this.province_id = province_id;
-//        this.city_name = city_name;
-//        this.description = description;
-//    }
 
     public City() {
 
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getProvinceId() {
+    public int getProvinceId() {
         return province_id;
     }
 
-    public void setProvinceId(Long provinceId) {
+    public void setProvinceId(int provinceId) {
         this.province_id = provinceId;
     }
 
@@ -58,5 +51,10 @@ public class City {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "id: " + id + " province_id: " + province_id + " city_name: " + city_name + " description: " + description;
     }
 }

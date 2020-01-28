@@ -13,6 +13,7 @@ public class Main {
     private AnotherUser anotherUser;
 
     public static void main(String[] args) {
+
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         User user = (User) applicationContext.getBean("user");
         // spring use singleton for design pattern

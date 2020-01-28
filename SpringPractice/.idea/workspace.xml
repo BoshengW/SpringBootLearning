@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a857a53e-557a-41e7-b96b-77df5ad7092b" name="Default Changelist" comment="" />
+    <list default="true" id="a857a53e-557a-41e7-b96b-77df5ad7092b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sincere/model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sincere/model/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/sincere/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/sincere/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_blog/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_MVC_blog/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/controllers/CityRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/controllers/CityRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/dao/CityDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/dao/CityDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/dao/CityDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/dao/CityDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/domain/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/domain/City.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/service/CityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/service/CityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/service/impl/CityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_MVC_blog/src/main/java/com/benson/springbootpractice/service/impl/CityServiceImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -14,7 +30,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1Vwifd7zKWRBS31KvwAKMydcCcW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -22,8 +45,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -48,6 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1578170662626</updated>
       <workItem from="1578170665764" duration="3243000" />
+      <workItem from="1579315668247" duration="3434000" />
     </task>
     <servers />
   </component>
@@ -55,6 +84,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="880" y="189" key="SettingsEditor" timestamp="1579325297403">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="880" y="189" key="SettingsEditor/0.0.1920.1040/-1080.-247.1080.1880@0.0.1920.1040" timestamp="1579325297403" />
     <state x="449" y="95" key="spring file set editor" timestamp="1578170975618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

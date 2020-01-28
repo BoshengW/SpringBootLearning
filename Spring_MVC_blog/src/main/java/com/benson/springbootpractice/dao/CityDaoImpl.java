@@ -33,16 +33,18 @@ public class CityDaoImpl implements CityDao{
 
     }
 
+
+
     @Override
-    public City findCityByIdFromDB(Long id) {
+    public City findCityByIdFromDB(int id) {
         String sql = "select * from city where id=?;";
         City mycity= jdbcTemplate.queryForObject(sql, new RowMapper<City>() {
             @Override
             public City mapRow(ResultSet resultSet, int i) throws SQLException {
                 // resultSet save all columns values based on index
                 City temp = new City();
-                temp.setId(resultSet.getLong(1));
-                temp.setProvinceId(resultSet.getLong(2));
+                temp.setId(resultSet.getInt(1));
+                temp.setProvinceId(resultSet.getInt(2));
                 temp.setCityName(resultSet.getString(3));
                 temp.setDescription(resultSet.getString(4));
                 return temp;
@@ -87,7 +89,7 @@ public class CityDaoImpl implements CityDao{
     }
 
     @Override
-    public void deleteByIdFromDB(Long id) {
+    public void deleteByIdFromDB(int id) {
         String sql = "delete from city where id=?;";
         jdbcTemplate.update(sql,id);
         System.out.println("delete success");

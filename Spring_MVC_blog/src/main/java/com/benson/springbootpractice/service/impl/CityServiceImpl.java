@@ -41,7 +41,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void deleteCity(Long id) {
+    public void deleteCity(int id) {
         cityDao.deleteByIdFromDB(id);
     }
 

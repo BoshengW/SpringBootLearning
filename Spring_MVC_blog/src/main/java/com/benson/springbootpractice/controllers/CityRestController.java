@@ -1,7 +1,10 @@
 package com.benson.springbootpractice.controllers;
 
+import com.benson.springbootpractice.ToolFunc.CvtJson;
 import com.benson.springbootpractice.domain.City;
 import com.benson.springbootpractice.service.CityService;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -37,27 +40,26 @@ public class CityRestController {
     }
 
     @RequestMapping(value = "/city/{id}", method=RequestMethod.DELETE)
-    public void deleteById(@PathVariable("id") Long id) {
+    public void deleteById(@PathVariable("id") int id) {
         cityService.deleteCity(id);
         System.out.println("Delete "+ id + " success");
     }
 
     @RequestMapping(value = "/city/add", method=RequestMethod.POST)
-    public void addCity(@RequestBody City city) {
-        // model a
-        // rowmapper
-        System.out.println(city.getCityName());
-        System.out.println(city.getId());
-        System.out.println(city.getProvinceId());
-        System.out.println(city.getDescription());
-        cityService.addCity(city);
-        System.out.println("add successfully");
+    public String addCity(@RequestBody String jsonCity) throws JSONException {
+        // convert city json string into json object
+        City myCity = CvtJson.cvtJsonToCity(jsonCity);
+        System.out.println(myCity.getCityName());
+        cityService.addCity(myCity);
+        return myCity.toString();
     }
     @RequestMapping(value = "/city/update", method=RequestMethod.PUT)
-    public void updateCity(@RequestBody City city) {
+    public String updateCity(@RequestBody String jsonCity) throws JSONException {
+        // convert json string from front end to City Object
+        City myCity = CvtJson.cvtJsonToCity(jsonCity);
+        cityService.updateCity(myCity);
+        return myCity.toString();
 
-        cityService.updateCity(city);
-        System.out.println("update successfully");
     }
 
 //    @PostMapping("/api/city/post")
