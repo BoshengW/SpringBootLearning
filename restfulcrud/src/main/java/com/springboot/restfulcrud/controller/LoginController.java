@@ -41,16 +41,5 @@ public class LoginController {
             return "login";
         }
 
-//
-//        if(!StringUtils.isEmpty(username) && "123456".equals(password)) {
-//            //if login successfully, to avoid POST form resubmission, we can redirect to main page
-//            // put attribute in session for login success user
-//            session.setAttribute("loginUser", username);
-//            return "redirect:/main.html";
-//        } else {
-//            map.put("msg", "登陆失败");
-//            return "login";
-//        }
-
     }
 }

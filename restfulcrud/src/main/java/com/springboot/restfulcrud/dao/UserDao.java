@@ -12,6 +12,9 @@ public interface UserDao {
     public List<User> getAllUser();
 
     // display match user
-    public User getMatchUser(String username);
+    public List<User> getMatchUser(String username);
+
+    // add user (user_group, register date) into database
+    public void addUserPrivil(User user);
 
 }

@@ -13,4 +13,7 @@ public interface UserInfoDao {
     // select user registration info by username
     public List<UserInfo> userInfoSelected(String username);
 
+    // add user info into database
+    public void addUserInfo(UserInfo userInfo);
+
 }
