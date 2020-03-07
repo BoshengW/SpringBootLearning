@@ -22,4 +22,11 @@ public class UserDaoImpl implements UserDao{
 
     }
 
+    @Override
+    public User getMatchUser(String username) {
+        String sql = "select * from user where username=?";
+        User userSelected = jdbcTemplate.queryForObject(sql, new UserMapper(), username);
+        return userSelected;
+    }
+
 }

@@ -10,4 +10,8 @@ public interface UserDao {
 
     // display all
     public List<User> getAllUser();
+
+    // display match user
+    public User getMatchUser(String username);
+
 }
