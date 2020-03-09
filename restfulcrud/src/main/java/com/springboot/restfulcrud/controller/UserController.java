@@ -7,9 +7,7 @@ import com.springboot.restfulcrud.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.sql.Date;
@@ -55,8 +53,6 @@ public class UserController {
             User newUser = new User();
             LocalDate localDate = LocalDate.now();
             Date sqlDate = Date.valueOf(localDate);
-                //        Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-                //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
             // add newUser into user table
             newUser.setUser_group("user");
@@ -67,6 +63,34 @@ public class UserController {
             // add newUserInfo into userinfo table
             userInfoDao.addUserInfo(userInfo);
         }
+
+        return "redirect:/users";
+    }
+
+    @GetMapping("/user/{id}")
+    public String toEditPage(@PathVariable("id") Integer id, Model model) {
+        List<UserInfo> userInfoSelectedById = userInfoDao.userInfoSelectedById(id);
+        model.addAttribute("usrinfo",userInfoSelectedById.get(0));
+
+        return "user/addUser";
+    }
+
+    // Put & Post区别 PUT 幂等性会让他更安全
+    @PostMapping("/edit")
+    public String updateUser(UserInfo userInfo) {
+        // put userinfo from frontend to database-> userinfo table
+        // also need to update user to database-> user table
+        userInfoDao.updateUserInfo(userInfo);
+        userDao.updateUser(userInfo.getUsername(),userInfo.getId());
+
+        return "redirect:/users";
+    }
+
+    @DeleteMapping("/user/{id}")
+    public String deleteUser(@PathVariable("id") Integer id) {
+        System.out.println("in delete page");
+        userDao.deleteUserById(id);
+        userInfoDao.deleteUserInfoById(id);
 
         return "redirect:/users";
     }

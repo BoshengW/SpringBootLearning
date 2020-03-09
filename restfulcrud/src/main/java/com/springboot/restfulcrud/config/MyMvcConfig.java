@@ -42,7 +42,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
 //                super.addInterceptors(registry);
                 // /** 拦截任何路径下任何请求
                 registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                        .excludePathPatterns("/index.html","/","/user/login");
+                        .excludePathPatterns("/index.html","/","/user/login","/register");
             }
         };
         return adapter;

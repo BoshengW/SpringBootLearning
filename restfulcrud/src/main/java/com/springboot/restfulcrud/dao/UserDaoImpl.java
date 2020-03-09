@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.quartz.QuartzProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
@@ -51,6 +52,24 @@ public class UserDaoImpl implements UserDao{
                 return ps;
             }
         });
+    }
+
+    @Override
+    public void updateUser(String username, int id) {
+        String sql = "update user set username=? where id=?;";
+        int row = jdbcTemplate.update(sql, new PreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setString(1,username);
+                preparedStatement.setInt(2,id);
+            }
+        });
+    }
+
+    @Override
+    public void deleteUserById(int id) {
+        String sql = "delete from user where id=?;";
+        jdbcTemplate.update(sql,id);
     }
 
 }

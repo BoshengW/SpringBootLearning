@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>User Info</title>
+    <title>User Info Add</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-
-    <title>Dashboard Template for Bootstrap</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
@@ -26,8 +24,12 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <!--    &lt;!&ndash; Custom styles for this template &ndash;&gt;-->
-    <!--    <link href="dashboard.css" rel="stylesheet">-->
+    <style>
+        body {
+            height: 100vh;
+        }
+    </style>
+
 
 </head>
 <body>
@@ -39,50 +41,36 @@
         <!--        引入侧边栏-->
         <!--        处理模板名：：fragmen以外还可以模板名::#id-->
         <div th:replace="commons/bar::#sidebar(activeUri='user')"></div>
-
+        <!--        注意只是二合一界面 当点击add user不应当显示回显；如果点击edit后应当显示回显-->
+        <!--        在点击edit后，应该考虑将user info回显-->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <form th:action="@{/user}" method="post">
-
+            <!--注意这里表单<form>只能定义post/get如果定义put/delete等需要进行一下操作-->
+            <!--1. SpringMVC中配置HiddenHttpMethodFilter; (SpringBoot自动配置)-->
+            <!--2. 页面创建一个post表单-->
+            <!--3. 创建一个input项，name="_method" 值就是我们的指定方式-->
+            <form th:action="${usrinfo!=null}?'/edit':'/user'" method="post">
+                <!--添加put method 以下方法可以建立一个fake PUT 请求-->
+<!--                <input type="hidden" name="_method" value="put" th:if="${usrinfo!=null}">-->
+                <input type="hidden" name="id" th:if="${usrinfo!=null}" th:value="${usrinfo.id}"/>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">User name</label>
-                    <input name="username" type="text" class="form-control" id="exampleFormControlInput2" required>
+                    <input name="username" type="text" class="form-control" id="exampleFormControlInput2" placeholder="star"
+                           th:value="${usrinfo!=null}?${usrinfo.username}" style="width: 500px" required>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Email address</label>
-                    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+                    <input name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com"
+                           th:value="${usrinfo!=null}?${usrinfo.email}" style="width: 500px" required>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Password</label>
-                    <input name="password" type="password" class="form-control" id="exampleFormControlInput3" placeholder="123abcXYZ" required>
+                    <input name="password" type="password" class="form-control" id="exampleFormControlInput3" placeholder="123abcXYZ"
+                           th:value="${usrinfo!=null}?${usrinfo.password}" style="width: 500px" required>
                 </div>
 
-<!--                <div class="form-group">-->
-<!--                    <label for="exampleFormControlSelect1">Example select</label>-->
-<!--                    <select class="form-control" id="exampleFormControlSelect1">-->
-<!--                        <option>1</option>-->
-<!--                        <option>2</option>-->
-<!--                        <option>3</option>-->
-<!--                        <option>4</option>-->
-<!--                        <option>5</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="exampleFormControlSelect2">Example multiple select</label>-->
-<!--                    <select multiple class="form-control" id="exampleFormControlSelect2">-->
-<!--                        <option>1</option>-->
-<!--                        <option>2</option>-->
-<!--                        <option>3</option>-->
-<!--                        <option>4</option>-->
-<!--                        <option>5</option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label for="exampleFormControlTextarea1">Example textarea</label>-->
-<!--                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>-->
-<!--                </div>-->
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary" th:text="${usrinfo!=null}?'Update':'Add'"></button>
             </form>
         </main>
     </div>

@@ -17,4 +17,10 @@ public interface UserDao {
     // add user (user_group, register date) into database
     public void addUserPrivil(User user);
 
+    // update existed user into database
+    public void updateUser(String username, int id);
+
+    // delete existed user from database
+    public void deleteUserById(int id);
+
 }

@@ -50,4 +50,33 @@ public class UserInfoDaoImpl implements UserInfoDao {
             }
         });
     }
+
+    @Override
+    public List<UserInfo> userInfoSelectedById(int id) {
+        String sql = "select * from userinfo where id=?;";
+        List<UserInfo> userInfoSelectedById = jdbcTemplate.query(sql, new UserInfoMapper(), id);
+
+        return userInfoSelectedById;
+    }
+
+    @Override
+    public void updateUserInfo(UserInfo userInfo) {
+        String sql = "update userinfo set username=?, email=?, password=? where id=?;";
+        int row = jdbcTemplate.update(sql, new PreparedStatementSetter() {
+            @Override
+            public void setValues(PreparedStatement preparedStatement) throws SQLException {
+                preparedStatement.setString(1, userInfo.getUsername());
+                preparedStatement.setString(2, userInfo.getEmail());
+                preparedStatement.setString(3,userInfo.getPassword());
+                preparedStatement.setInt(4,userInfo.getId());
+            }
+        });
+
+    }
+
+    @Override
+    public void deleteUserInfoById(int id) {
+        String sql = "delete from userinfo where id=?;";
+        jdbcTemplate.update(sql, id);
+    }
 }
